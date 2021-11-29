@@ -12,7 +12,6 @@ class LaunchPad extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(state, props.name);
     if (!props.name) {
       return {
         name: state.name,
@@ -28,7 +27,9 @@ class LaunchPad extends Component {
 
   render() {
     const {name} = this.state;
-    console.log(name);
+    const {navigation} = this.props;
+    console.log(navigation, 'nav');
+
     return (
       <BaseBody>
         <View
@@ -36,11 +37,17 @@ class LaunchPad extends Component {
             backgroundColor: green,
             padding: 20,
             margin: 20,
-            // alignSelf: 'center',
+            alignSelf: 'center',
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text style={{color: blue}}>Hi how you {name}</Text>
+          <Text
+            onPress={() =>
+              navigation.navigate('Primary', {screen: 'Dashboard'})
+            }
+            style={{color: blue}}>
+            Hi how you {name}
+          </Text>
         </View>
       </BaseBody>
     );

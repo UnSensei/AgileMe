@@ -11,5 +11,6 @@ export const BaseStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: black,
+    padding: 5,
   },
 });
